@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="172" id="2e2-py-G2F">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="172" id="2e2-py-G2F" customClass="MovieCell" customModule="MovieViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="172"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2e2-py-G2F" id="ooh-0n-JP4" customClass="MovieCell" customModule="MovieViewer" customModuleProvider="target">
@@ -49,6 +49,11 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="overviewLabel" destination="iHU-QL-hYe" id="32u-Ag-aSl"/>
+                                            <outlet property="photoView" destination="fg5-Kl-Ffy" id="Kdl-8P-28q"/>
+                                            <outlet property="titleLabel" destination="REW-KD-P20" id="omn-oe-QGr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

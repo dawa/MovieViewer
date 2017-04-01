@@ -89,17 +89,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies![indexPath.row]
         
         if let title = movie.value(forKeyPath:"title") as? String {
-            //cell.titleLabel.text = title
+            cell.titleLabel.text = title
         } else {
             // title is nil. Good thing we didn't try to unwrap it!
         }
         
         if let overview = movie.value(forKeyPath:"overview") as? String {
-            //cell.overviewLabel.text = overview
+            cell.overviewLabel.text = overview
         } else {
             // overview is nil. Good thing we didn't try to unwrap it!
         }
 
+        if let posterPath = movie.value(forKeyPath:"poster_path") as? String {
+            let baseUrl = "https://image.tmdb.org/t/p/w342"
+            
+            if let imageUrl = URL(string: baseUrl + posterPath) {
+                cell.photoView.setImageWith(imageUrl)
+            } else {
+                // URL(string: imageUrlString!) is nil. Good thing we didn't try to unwrap it!
+            }
+        } else {
+            // overview is nil. Good thing we didn't try to unwrap it!
+        }
+        
         return cell
     }    
 
