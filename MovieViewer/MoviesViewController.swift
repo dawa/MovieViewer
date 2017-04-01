@@ -65,15 +65,20 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)
+        let movie = movies![indexPath!.row]
+        
+        // Get the new view controller using
+        let detailViewController = segue.destination as!DetailViewController
         // Pass the selected object to the new view controller.
+        detailViewController.movie = movie
     }
-    */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = movies {
@@ -90,26 +95,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         if let title = movie.value(forKeyPath:"title") as? String {
             cell.titleLabel.text = title
-        } else {
-            // title is nil. Good thing we didn't try to unwrap it!
         }
         
         if let overview = movie.value(forKeyPath:"overview") as? String {
             cell.overviewLabel.text = overview
-        } else {
-            // overview is nil. Good thing we didn't try to unwrap it!
         }
-
+        
         if let posterPath = movie.value(forKeyPath:"poster_path") as? String {
             let baseUrl = "https://image.tmdb.org/t/p/w342"
             
             if let imageUrl = URL(string: baseUrl + posterPath) {
                 cell.photoView.setImageWith(imageUrl)
-            } else {
-                // URL(string: imageUrlString!) is nil. Good thing we didn't try to unwrap it!
             }
-        } else {
-            // overview is nil. Good thing we didn't try to unwrap it!
         }
         
         return cell

@@ -13,6 +13,7 @@
 		31BFEDDE1E8F580200983D68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BFEDDC1E8F580200983D68 /* LaunchScreen.storyboard */; };
 		31BFEDE61E8F588900983D68 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEDE51E8F588900983D68 /* MoviesViewController.swift */; };
 		31BFEDEA1E8F67C400983D68 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEDE91E8F67C400983D68 /* MovieCell.swift */; };
+		31BFEDEC1E8F7FD300983D68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEDEB1E8F7FD300983D68 /* DetailViewController.swift */; };
 		6639EEA1D3273D89B49F1ED0 /* Pods_MovieViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F507A96C03AA0383D3CC3D69 /* Pods_MovieViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		31BFEDDF1E8F580200983D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BFEDE51E8F588900983D68 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		31BFEDE91E8F67C400983D68 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		31BFEDEB1E8F7FD300983D68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A51F37C4893A63D3B5F2D0A8 /* Pods-MovieViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieViewer/Pods-MovieViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		B5945DC6CB16DB0AB24EF9C6 /* Pods-MovieViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieViewer/Pods-MovieViewer.release.xcconfig"; sourceTree = "<group>"; };
 		F507A96C03AA0383D3CC3D69 /* Pods_MovieViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				31BFEDE51E8F588900983D68 /* MoviesViewController.swift */,
+				31BFEDEB1E8F7FD300983D68 /* DetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				31BFEDD41E8F580200983D68 /* AppDelegate.swift in Sources */,
 				31BFEDE61E8F588900983D68 /* MoviesViewController.swift in Sources */,
 				31BFEDEA1E8F67C400983D68 /* MovieCell.swift in Sources */,
+				31BFEDEC1E8F7FD300983D68 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
