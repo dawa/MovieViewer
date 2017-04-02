@@ -106,10 +106,32 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let baseUrl = "https://image.tmdb.org/t/p/w342"
             
             if let imageUrl = URL(string: baseUrl + posterPath) {
-                cell.photoView.setImageWith(imageUrl)
+                let imageRequest = NSURLRequest(url: imageUrl)
+
+                cell.photoView.setImageWith(
+                    imageRequest as URLRequest,
+                    placeholderImage: nil,
+                    success: { (imageRequest, imageResponse, image) -> Void in
+                        // imageResponse will be nil if the image is cached
+                        if imageResponse != nil {
+                            print("Image was NOT cached, fade in image")
+                            cell.photoView.alpha = 0.0
+                            cell.photoView.image = image
+                            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                                cell.photoView.alpha = 1.0
+                            })
+                        } else {
+                            print("Image was cached so just update the image")
+                            cell.photoView.image = image
+                        }
+                },
+                    failure: { (imageRequest, imageResponse, error) -> Void in
+                        // do something for the failure condition
+                        self.networkErrorView.isHidden = false
+                })
             }
         }
-        
+
         // No color when the user selects cell
         cell.selectionStyle = .none
 
