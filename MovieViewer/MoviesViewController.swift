@@ -114,14 +114,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     success: { (imageRequest, imageResponse, image) -> Void in
                         // imageResponse will be nil if the image is cached
                         if imageResponse != nil {
-                            print("Image was NOT cached, fade in image")
+                            //print("Image was NOT cached, fade in image")
                             cell.photoView.alpha = 0.0
                             cell.photoView.image = image
                             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                                 cell.photoView.alpha = 1.0
                             })
                         } else {
-                            print("Image was cached so just update the image")
+                            //print("Image was cached so just update the image")
                             cell.photoView.image = image
                         }
                 },
