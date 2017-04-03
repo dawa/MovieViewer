@@ -10,16 +10,20 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var networkErrorView: UIView!
     @IBOutlet weak var networkErrorImageView: UIImageView!
-    
+    @IBOutlet weak var searchBarView: UISearchBar!
+
     var movies: [NSDictionary]?
+    var unfilteredMovies: [NSDictionary] = []
+    var movieTitles: [String] = []
+
     var api_key: String = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     var endpoint: String = "now_playing"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,7 +62,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 NSShadowAttributeName : shadow
             ]
         }
-        
+
+        // Add search bar
+        searchBarView.delegate = self
+
         getMoviesData()
     }
 
@@ -162,6 +169,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
                         // This is where you will store the returned array of movies in your movies property
                         self.movies = responseDictionary["results"] as? [NSDictionary]
+                        for movie in self.movies! {
+                            self.movieTitles.append(movie["title"] as! String)
+                        }
+                        self.unfilteredMovies = self.movies!
+
                         self.tableView.reloadData()
                     }
                 } else {
@@ -175,5 +187,31 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         getMoviesData()
         // Tell the refreshControl to stop spinning
         refreshControl.endRefreshing()
+    }
+
+    func searchBar(_ searchBarView: UISearchBar, textDidChange searchText: String){
+        let filteredString = movieTitles.filter { (item: String) -> Bool in
+            let matchString = item.lowercased().range(of: searchText.lowercased())
+            return matchString != nil ? true : false
+        }
+
+        var filteredMovies: [NSDictionary] = []
+
+        for movie in self.movies! {
+            for title in filteredString {
+                if title.contains (movie["title"] as! String) && !(filteredMovies.contains(movie)){
+                    filteredMovies.append(movie)
+                }
+            }
+        }
+
+        if (!searchText.isEmpty){
+            self.movies = filteredMovies
+        } else{
+            // Get all the movies if the search bar is empty
+            self.movies = self.unfilteredMovies
+        }
+
+        self.tableView.reloadData()
     }
 }
