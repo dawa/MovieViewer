@@ -2,7 +2,7 @@
 
 iFlicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 5 hours spent in total
+Time spent: 7 hours spent in total
 
 ## User Stories
 
@@ -24,10 +24,6 @@ The following **optional** features are implemented:
 - [x] Customize the highlight and selection effect of the cell.
 - [x] Customize the navigation bar.
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
@@ -38,11 +34,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Started off try to add a search controller before realizing I could use a delegate. It's not easily discoverable functionality.
+Started off trying to add a search controller before realizing I could use a delegate. It's not easily discoverable functionality.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2017 Davis Wamola
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
